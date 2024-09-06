@@ -1,5 +1,6 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://ccb6sya5421ma"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://ccb6sya5421ma"]
 
+[ext_resource type="Texture2D" uid="uid://bhxdldydw5rvi" path="res://assests/tiles/TestTile.png" id="1_cjrrh"]
 [ext_resource type="Script" path="res://scripts/base/TileRes.cs" id="1_hyk4e"]
 
 [resource]
@@ -7,8 +8,8 @@ script = ExtResource("1_hyk4e")
 Core_id = "Test"
 Core_name = "Test"
 Core_type = "ground"
-Image_iamge = "TestTile.png"
+Image_iamge = ExtResource("1_cjrrh")
 Image_size = Vector2(16, 16)
-Layer_physics = 0
-Layer_agent = 0
-Layer_avoid = 0
+Layer_physics = 16
+Layer_agent = 1
+Layer_avoid = false
