@@ -1,0 +1,72 @@
+[gd_scene load_steps=2 format=3 uid="uid://dubdu1nuhn2md"]
+
+[ext_resource type="Script" path="res://scripts/MainMenu.cs" id="1_kl0cp"]
+
+[node name="MainMenu" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_kl0cp")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.2
+anchor_right = 0.375
+anchor_bottom = 0.6
+bbcode_enabled = true
+text = "[center]
+[font size=50]Stars Sailing:[/font]
+[font size=50]the[/font][font size=150] Edge[/font][font size=50] of[/font]
+[font size=50]a[/font][font size=150] Plain[/font]
+"
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_right = -20.0
+grow_horizontal = 0
+grow_vertical = 2
+alignment = 1
+
+[node name="Button1" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Single Player"
+
+[node name="Button2" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Multiplayer"
+
+[node name="Button3" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Option"
+
+[node name="Button4" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Map Editor"
+
+[node name="Button5" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+
+[connection signal="pressed" from="Buttons/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="Buttons/Button5" to="." method="_on_button_5_pressed"]

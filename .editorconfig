@@ -1,0 +1,7 @@
+[*.cs]
+
+# CA1050: 在命名空间中声明类型
+dotnet_diagnostic.CA1050.severity = none
+
+# GD0102: The type of the exported member is not supported
+dotnet_diagnostic.GD0102.severity = none

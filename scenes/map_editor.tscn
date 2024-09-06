@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://c81ktbho4w77"]
+
+[node name="mapEditor" type="Node2D"]
+
+[node name="UI" type="CanvasLayer" parent="."]

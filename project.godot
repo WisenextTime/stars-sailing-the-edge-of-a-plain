@@ -1,0 +1,86 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Stars Sailing:the Edge of a Plain"
+config/name_localized={
+"zh": "群星启航：平原边缘"
+}
+config/version="1.0.0"
+run/main_scene="res://scenes/main_menu.tscn"
+config/features=PackedStringArray("4.3", "C#", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=2560
+window/size/viewport_height=1440
+window/size/resizable=false
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/per_pixel_transparency/allowed=true
+
+[dotnet]
+
+project/assembly_name="Stars Sailing-the Edge of a Plain"
+
+[editor]
+
+script/search_in_file_extensions=PackedStringArray("gd", "gdshader", "cs")
+
+[global_group]
+
+mapButton=""
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[layer_names]
+
+2d_render/layer_1="background"
+2d_render/layer_2="shadow"
+2d_render/layer_3="unit"
+2d_render/layer_4="decal"
+2d_render/layer_5="effect"
+2d_render/layer_6="UI"
+2d_physics/layer_1="under"
+2d_navigation/layer_1="ground"
+2d_physics/layer_2="land"
+2d_navigation/layer_2="lava"
+2d_physics/layer_3="low_altitude"
+2d_navigation/layer_3="water"
+2d_physics/layer_4="high_altitude"
+2d_navigation/layer_4="waterbridge"
+2d_physics/layer_5="SEA"
+2d_navigation/layer_5="ice"
+2d_physics/layer_6="GROUND"
+2d_navigation/layer_6="cliff_1"
+2d_physics/layer_7="AIR"
+2d_navigation/layer_7="cliff_2"
+2d_physics/layer_8="BUILDING"
+2d_navigation/layer_8="cliff_3"
+2d_navigation/layer_9="cliff_4"
+2d_navigation/layer_10="void"
+avoidance/layer_1="building"
+
+[physics]
+
+2d/default_gravity=0.0
+2d/default_gravity_vector=Vector2(0, 0)
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+textures/decals/filter=0
+textures/light_projectors/filter=4
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
