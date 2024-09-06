@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://c81ktbho4w77"]
+[gd_scene load_steps=2 format=3 uid="uid://c81ktbho4w77"]
 
 [ext_resource type="Script" path="res://scripts/map_editor/MapEditor.cs" id="1_m7huj"]
-[ext_resource type="Texture2D" uid="uid://bruhot8sypv7v" path="res://sprites/menu_button.svg" id="2_v2472"]
 
 [node name="mapEditor" type="Node2D"]
 script = ExtResource("1_m7huj")
@@ -26,20 +25,3 @@ theme_override_font_sizes/font_size = 45
 placeholder_text = "MapName"
 alignment = 1
 expand_to_text_length = true
-
-[node name="TextureButton" type="TextureButton" parent="UI/Bar"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -50.0
-offset_bottom = 50.0
-grow_horizontal = 0
-grow_vertical = 2
-texture_normal = ExtResource("2_v2472")
-ignore_texture_size = true
-stretch_mode = 0
