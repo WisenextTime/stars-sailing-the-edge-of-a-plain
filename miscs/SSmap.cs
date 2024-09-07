@@ -8,9 +8,6 @@ public partial class SSmap : Json
     public Vector2 Size;
     public string Author;
     public string[] GROUND;
-    public int[] PHYSICS;
-    public int[] AGENT;
-    public int[] AVOID;
     public int[] HEIGHT;
     public Dictionary OBJECT;
     public SSmap(string file_path){
@@ -21,10 +18,7 @@ public partial class SSmap : Json
             Author = (string)contains["author"];
             contains = (Dictionary)contains["contains"];
             GROUND = (string[])contains["GROUND"];
-            PHYSICS = (int[])contains["PHYSICS"];
-            AGENT = (int[])contains["AGENT"];
             HEIGHT = (int[])contains["HEIGHT"];
-            AVOID = (int[])contains["AVOID"];
             OBJECT = (Dictionary)contains["OBJECT"];
         }
     }

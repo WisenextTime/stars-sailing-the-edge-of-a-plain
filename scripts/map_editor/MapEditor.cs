@@ -36,8 +36,10 @@ public partial class MapEditor : Node2D
 	}
 	private void place_tile(Vector2 pos){
 		var now_tile = tile_res.Instantiate<EditorTile>();
-		TileRes tile_res_data=new();
-		tile_res_data.Core_id=MapData.GROUND[(int)(pos.Y*MapData.Size.X+pos.X)];
-		
-	}
+        TileRes tile_res_data = new()
+        {
+            Core_id = MapData.GROUND[(int)(pos.Y * MapData.Size.X + pos.X)]
+        };
+
+    }
 }
