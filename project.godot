@@ -15,7 +15,7 @@ config/name_localized={
 "zh": "群星启航：平原边缘"
 }
 config/version="1.0.0"
-run/main_scene="res://scenes/main_menu.tscn"
+run/main_scene="res://scenes/data_preloader.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://icon.svg"
@@ -73,15 +73,30 @@ pointing/emulate_touch_from_mouse=true
 2d_physics/layer_4="high_altitude"
 2d_navigation/layer_4="waterbridge"
 2d_physics/layer_5="SEA"
-2d_navigation/layer_5="ice"
+2d_navigation/layer_5="void"
 2d_physics/layer_6="GROUND"
-2d_navigation/layer_6="cliff_1"
 2d_physics/layer_7="AIR"
-2d_navigation/layer_7="cliff_2"
 2d_physics/layer_8="BUILDING"
-2d_navigation/layer_8="cliff_3"
-2d_navigation/layer_9="cliff_4"
-2d_navigation/layer_10="void"
+2d_physics/layer_11="H1"
+2d_navigation/layer_11="H1"
+2d_physics/layer_12="H2"
+2d_navigation/layer_12="H2"
+2d_physics/layer_13="H3"
+2d_navigation/layer_13="H3"
+2d_physics/layer_14="H4"
+2d_navigation/layer_14="H4"
+2d_physics/layer_15="H5"
+2d_navigation/layer_15="H5"
+2d_physics/layer_16="H6"
+2d_navigation/layer_16="H6"
+2d_physics/layer_17="H7"
+2d_navigation/layer_17="H7"
+2d_physics/layer_18="H8"
+2d_navigation/layer_18="H8"
+2d_physics/layer_19="H9"
+2d_navigation/layer_19="H9"
+2d_physics/layer_20="H10"
+2d_navigation/layer_20="H10"
 avoidance/layer_1="building"
 
 [physics]
@@ -92,6 +107,7 @@ avoidance/layer_1="building"
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+textures/vram_compression/import_etc2_astc=true
 textures/decals/filter=0
 textures/light_projectors/filter=4
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
