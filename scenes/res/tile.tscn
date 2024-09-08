@@ -26,7 +26,6 @@ navigation_polygon = SubResource("NavigationPolygon_cw7rl")
 texture = ExtResource("2_j8cfs")
 hframes = 3
 vframes = 3
-frame = 4
 
 [node name="avoid" type="NavigationObstacle2D" parent="."]
 visible = false
