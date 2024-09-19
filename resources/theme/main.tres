@@ -1,0 +1,68 @@
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://wyf0ilj5k5ts"]
+
+[ext_resource type="Texture2D" uid="uid://05rwg75fgsmj" path="res://assets/images/UI/可拉伸按钮中3.png" id="1_emuec"]
+[ext_resource type="Texture2D" uid="uid://6jwbi21gsmsc" path="res://assets/images/UI/可拉伸按钮中.png" id="2_4h2ey"]
+[ext_resource type="Texture2D" uid="uid://dao2xdhjfyg0" path="res://assets/images/UI/可拉伸按钮中2.png" id="3_pop0v"]
+[ext_resource type="StyleBox" uid="uid://be463dg8wn6t8" path="res://resources/theme/style_box_normal.tres" id="4_yur3w"]
+[ext_resource type="StyleBox" uid="uid://u0bgb8efgw4g" path="res://resources/theme/style_box_disable.tres" id="5_cv8rv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_12np1"]
+texture = ExtResource("1_emuec")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0.34, 0.34, 0.34, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ywlgr"]
+texture = ExtResource("2_4h2ey")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(1, 1, 1, 0.533333)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h21cx"]
+texture = ExtResource("2_4h2ey")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4v0so"]
+texture = ExtResource("3_pop0v")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_imil0"]
+texture = ExtResource("1_emuec")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0.88, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0.94902, 0.94902, 1)
+Button/colors/font_hover_color = Color(0.301961, 0.94902, 0.94902, 1)
+Button/colors/font_pressed_color = Color(0.137255, 1, 1, 1)
+Button/styles/disabled = SubResource("StyleBoxTexture_12np1")
+Button/styles/focus = SubResource("StyleBoxTexture_ywlgr")
+Button/styles/hover = SubResource("StyleBoxTexture_h21cx")
+Button/styles/normal = SubResource("StyleBoxTexture_4v0so")
+Button/styles/pressed = SubResource("StyleBoxTexture_imil0")
+LineEdit/colors/caret_color = Color(0, 0, 0, 1)
+LineEdit/colors/clear_button_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_uneditable_color = Color(1, 1, 1, 1)
+LineEdit/styles/normal = ExtResource("4_yur3w")
+LineEdit/styles/read_only = ExtResource("5_cv8rv")
+MenuBar/styles/disabled = ExtResource("5_cv8rv")
+MenuBar/styles/normal = ExtResource("4_yur3w")
+TextEdit/colors/font_color = Color(0, 0, 0, 1)
+TextEdit/colors/font_readonly_color = Color(1, 1, 1, 1)
+TextEdit/styles/normal = ExtResource("4_yur3w")
+TextEdit/styles/read_only = ExtResource("5_cv8rv")

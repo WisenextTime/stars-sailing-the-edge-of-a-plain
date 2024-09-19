@@ -40,12 +40,11 @@ script/search_in_file_extensions=PackedStringArray("gd", "gdshader", "cs")
 [file_customization]
 
 folder_colors={
-"res://assests/": "green",
+"res://assets/": "teal",
 "res://miscs/": "red",
 "res://resources/": "yellow",
 "res://scenes/": "blue",
-"res://scripts/": "purple",
-"res://sprites/": "teal"
+"res://scripts/": "purple"
 }
 
 [global_group]
