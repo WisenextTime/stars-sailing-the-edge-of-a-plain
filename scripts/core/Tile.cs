@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using starsailing.lib;
+using starsailing;
 
 namespace starsailing.core;
 
@@ -22,7 +23,7 @@ public partial class Tile : Resource
     public MoveType moveType = MoveType.none;
     public string image = IndexImage.missing;
     public Vector2I size = new(16, 16);
-    public float rough = 1;
+    public float rough = 1f;
     //粗糙度决定单位在该地块上行走的加速度减速度修正,数值越低越光滑
     //注意,粗糙度应该是一个不为零的正浮点数
     public float temperature = 5;

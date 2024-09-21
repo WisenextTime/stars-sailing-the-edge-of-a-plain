@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using starsailing.lib;
+using starsailing;
 
 namespace starsailing.core;
 

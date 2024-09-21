@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dttjqgm68n738"]
 
-[ext_resource type="Script" path="res://scripts/preloader.cs" id="1_bt2cs"]
+[ext_resource type="Script" path="res://scripts/Preloader.cs" id="1_x6x8b"]
 [ext_resource type="Texture2D" uid="uid://dva6wolj1bbsi" path="res://assets/images/UI/地图框.png" id="2_vb0wy"]
 
 [node name="Preloader" type="Control"]
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_bt2cs")
+script = ExtResource("1_x6x8b")
 
 [node name="background" type="NinePatchRect" parent="."]
 layout_mode = 1
