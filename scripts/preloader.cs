@@ -4,7 +4,6 @@ using starsailing.conten;
 using starsailing.lib;
 using starsailing.core;
 
-
 namespace starsailing;
 
 public partial class Preloader : Control
@@ -25,5 +24,9 @@ public partial class Preloader : Control
 
 		//GetTree().ChangeSceneToFile("res://scenes/debug/object debug.tscn");
 		//TileDebug
+
+		//GetTree().ChangeSceneToFile("res://scenes/debug/debug_new_map.tscn");
+		GetTree().ChangeSceneToFile("res://scenes/debug/map debug.tscn");
+		//MapDebug
 	}
 }

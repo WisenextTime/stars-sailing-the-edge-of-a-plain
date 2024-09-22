@@ -1,15 +1,29 @@
 {
     "version": "0.2.0",
     "configurations": [
+        
         {
-            "name": "Play",
+            "name": "Launch",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
             "program": "D:/Godot_v4.3-stable_mono_win64/Godot_v4.3-stable_mono_win64.exe",
-            "args":[],
+            "args": [],
             "cwd": "${workspaceFolder}",
             "stopAtEntry": false,
+        },
+        {
+            "name": "Launch (Select Scene)",
+            "type": "godot-mono",
+            "request": "launch",
+            "mode": "executable",
+            "preLaunchTask": "build",
+            "executable": "D:/Godot_v4.3-stable_mono_win64/Godot_v4.3-stable_mono_win64.exe",
+            "executableArguments": [
+                "--path",
+                "",
+                "SelectLaunchScene"
+            ]
         }
     ]
 }

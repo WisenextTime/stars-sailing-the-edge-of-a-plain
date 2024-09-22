@@ -55,6 +55,7 @@ folder_colors={
 [global_group]
 
 mapButton=""
+DEBUG=""
 
 [input_devices]
 

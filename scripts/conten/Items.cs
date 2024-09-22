@@ -11,9 +11,9 @@ class Items
     public static void PreloadItems()
     {
 
-        Global.Instance.Items.Add(tree = new Item("tree")
+        Global.Instance.Items["tree"] = tree = new Item("tree")
         {
             name = "tree",
-        });
+        };
     }
 }

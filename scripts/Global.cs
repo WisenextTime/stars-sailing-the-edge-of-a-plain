@@ -12,8 +12,8 @@ namespace starsailing;
 public partial class Global : Node
 {
      public static Global Instance { get; private set; }
-     public List<Tile> Tiles = new();
-     public List<Item> Items = new();
+     public Dictionary<string,Tile> Tiles = new();
+     public Dictionary<string,Item> Items = new();
      public override void _Ready()
      {
           Instance = this;
