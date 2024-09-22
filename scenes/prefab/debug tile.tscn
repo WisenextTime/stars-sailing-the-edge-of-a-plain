@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://b353cpn6x4a1x"]
+
+[ext_resource type="Script" path="res://scripts/debug/DebugTile.cs" id="1_uyk8i"]
+[ext_resource type="Texture2D" uid="uid://d130higdg5srg" path="res://assets/images/missing.png" id="2_jvryr"]
+
+[node name="DebugTile" type="Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 3
+anchor_left = -0.01
+anchor_top = -0.017
+anchor_right = 0.01
+anchor_bottom = 0.017
+offset_left = 25.6
+offset_top = 24.48
+offset_right = -25.6
+offset_bottom = -24.48
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uyk8i")
+
+[node name="image" type="Sprite2D" parent="."]
+texture = ExtResource("2_jvryr")
+offset = Vector2(25, 25)
+
+[node name="name" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "name"
+horizontal_alignment = 1

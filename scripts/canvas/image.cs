@@ -9,7 +9,7 @@ namespace starsailing.canvas;
 
 public class Image
 {
-    public ImageTexture LoadImage(string name , string type , string modPath="res://")
+    public static ImageTexture LoadImage(string name , string type , string modPath="res:/")
     {
         string _path_dir = "null";
         string _path = "null";
@@ -42,11 +42,11 @@ public class Image
                 }
 
             }
-            if(_path!="null")
+            if(_path=="null")
             {
                 _path = _path_dir+name;
             }
         }
-        return ResourceLoader.Load<ImageTexture>(_path);
+        return ImageTexture.CreateFromImage(Godot.Image.LoadFromFile(_path));
     }
 }

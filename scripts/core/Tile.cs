@@ -8,7 +8,7 @@ namespace starsailing.core;
 
 public partial class Tile : Resource
 {
-    protected string id;
+    public string id{get;protected set;}
     public string name;
     public enum MoveType { none, ground, water, lava, forbid, waterbridge }
     /*

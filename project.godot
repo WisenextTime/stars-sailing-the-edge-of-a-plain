@@ -40,6 +40,7 @@ project/assembly_name="Stars Sailing-the Edge of a Plain"
 [editor]
 
 script/search_in_file_extensions=PackedStringArray("gd", "gdshader", "cs")
+export/convert_text_resources_to_binary=false
 
 [file_customization]
 

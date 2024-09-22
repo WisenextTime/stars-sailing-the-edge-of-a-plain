@@ -22,6 +22,8 @@ public partial class Preloader : Control
 	{
 		info = GetNode<Label>("background/info");
 		Preload();
-		//Console.WriteLine(Global.Instance.Tiles);
+
+		//GetTree().ChangeSceneToFile("res://scenes/debug/object debug.tscn");
+		//TileDebug
 	}
 }
