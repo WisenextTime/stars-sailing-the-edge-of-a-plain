@@ -43,18 +43,19 @@ class Tiles
         {
             name = "bridge",
             humidity = 10,
-            moveType = Tile.MoveType.waterbridge
+            moveType = MoveType.waterbridge
         };
         Global.Instance.Tiles["lava"] = lava = new Tile("lava")
         {
             name = "lava",
             temperature = 10,
-            moveType = Tile.MoveType.lava
+            moveType = MoveType.lava
         };
         Global.Instance.Tiles["air"] = air = new Tile("air")
         {
             name = "air",
-            moveType = Tile.MoveType.forbid
+            moveType = MoveType.forbid,
+            image = IndexImage.none
         };
     }
 }

@@ -1,12 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://dkn30a2q4uukh"]
+[gd_scene load_steps=3 format=3 uid="uid://dkn30a2q4uukh"]
 
 [ext_resource type="Script" path="res://scripts/map/MapEditor.cs" id="1_ci1fq"]
 
-[node name="MapDebug" type="Control" groups=["DEBUG"]]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[sub_resource type="TileSet" id="TileSet_blnqy"]
+resource_local_to_scene = true
+tile_size = Vector2i(32, 32)
+
+[node name="MapDebug" type="Node2D" groups=["DEBUG"]]
 script = ExtResource("1_ci1fq")
+
+[node name="camera" type="Camera2D" parent="."]
+
+[node name="tiles" type="TileMapLayer" parent="."]
+position = Vector2(-1, 0)
+tile_set = SubResource("TileSet_blnqy")

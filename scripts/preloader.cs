@@ -26,7 +26,9 @@ public partial class Preloader : Control
 		//TileDebug
 
 		//GetTree().ChangeSceneToFile("res://scenes/debug/debug_new_map.tscn");
-		GetTree().ChangeSceneToFile("res://scenes/debug/map debug.tscn");
-		//MapDebug
-	}
+		//GetTree().ChangeSceneToFile("res://scenes/debug/map debug.tscn");
+		Global.Instance.GameMap = "res://assets/maps/TestMap.json";
+		GetTree().ChangeSceneToFile("res://scenes/map_editor.tscn");
+        //TileMapDebug
+    }
 }

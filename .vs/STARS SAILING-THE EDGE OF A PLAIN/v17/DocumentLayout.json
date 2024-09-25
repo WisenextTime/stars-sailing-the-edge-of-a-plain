@@ -1,0 +1,105 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Lenovo\\Documents\\stars-sailing-the-edge-of-a-plain\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3C9E431F-992E-4B2D-B899-078C0756E896}|Stars Sailing-the Edge of a Plain.csproj|c:\\users\\lenovo\\documents\\stars-sailing-the-edge-of-a-plain\\scripts\\map\\mapeditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C9E431F-992E-4B2D-B899-078C0756E896}|Stars Sailing-the Edge of a Plain.csproj|solutionrelative:scripts\\map\\mapeditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C9E431F-992E-4B2D-B899-078C0756E896}|Stars Sailing-the Edge of a Plain.csproj|c:\\users\\lenovo\\documents\\stars-sailing-the-edge-of-a-plain\\scripts\\preloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C9E431F-992E-4B2D-B899-078C0756E896}|Stars Sailing-the Edge of a Plain.csproj|solutionrelative:scripts\\preloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C9E431F-992E-4B2D-B899-078C0756E896}|Stars Sailing-the Edge of a Plain.csproj|c:\\users\\lenovo\\documents\\stars-sailing-the-edge-of-a-plain\\scripts\\global.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C9E431F-992E-4B2D-B899-078C0756E896}|Stars Sailing-the Edge of a Plain.csproj|solutionrelative:scripts\\global.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C9E431F-992E-4B2D-B899-078C0756E896}|Stars Sailing-the Edge of a Plain.csproj|c:\\users\\lenovo\\documents\\stars-sailing-the-edge-of-a-plain\\assets\\maps\\testmap.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{3C9E431F-992E-4B2D-B899-078C0756E896}|Stars Sailing-the Edge of a Plain.csproj|solutionrelative:assets\\maps\\testmap.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C9E431F-992E-4B2D-B899-078C0756E896}|Stars Sailing-the Edge of a Plain.csproj|c:\\users\\lenovo\\documents\\stars-sailing-the-edge-of-a-plain\\scripts\\lib\\lib.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C9E431F-992E-4B2D-B899-078C0756E896}|Stars Sailing-the Edge of a Plain.csproj|solutionrelative:scripts\\lib\\lib.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Global.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Documents\\stars-sailing-the-edge-of-a-plain\\scripts\\Global.cs",
+              "RelativeDocumentMoniker": "scripts\\Global.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Documents\\stars-sailing-the-edge-of-a-plain\\scripts\\Global.cs",
+              "RelativeToolTip": "scripts\\Global.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-25T09:44:17.264Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MapEditor.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Documents\\stars-sailing-the-edge-of-a-plain\\scripts\\map\\MapEditor.cs",
+              "RelativeDocumentMoniker": "scripts\\map\\MapEditor.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Documents\\stars-sailing-the-edge-of-a-plain\\scripts\\map\\MapEditor.cs",
+              "RelativeToolTip": "scripts\\map\\MapEditor.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAtwCcAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-25T08:40:12.337Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Preloader.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Documents\\stars-sailing-the-edge-of-a-plain\\scripts\\Preloader.cs",
+              "RelativeDocumentMoniker": "scripts\\Preloader.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Documents\\stars-sailing-the-edge-of-a-plain\\scripts\\Preloader.cs",
+              "RelativeToolTip": "scripts\\Preloader.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAArwBwAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-25T08:39:55.504Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TestMap.json",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Documents\\stars-sailing-the-edge-of-a-plain\\assets\\maps\\TestMap.json",
+              "RelativeDocumentMoniker": "assets\\maps\\TestMap.json",
+              "ToolTip": "C:\\Users\\Lenovo\\Documents\\stars-sailing-the-edge-of-a-plain\\assets\\maps\\TestMap.json",
+              "RelativeToolTip": "assets\\maps\\TestMap.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-09-25T06:13:48.042Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "lib.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Documents\\stars-sailing-the-edge-of-a-plain\\scripts\\lib\\lib.cs",
+              "RelativeDocumentMoniker": "scripts\\lib\\lib.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Documents\\stars-sailing-the-edge-of-a-plain\\scripts\\lib\\lib.cs",
+              "RelativeToolTip": "scripts\\lib\\lib.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-25T04:27:11.973Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
