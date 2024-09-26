@@ -10,7 +10,7 @@ using starsailing.canvas;
 using System.Reflection.PortableExecutable;
 using starsailing.conten;
 
-public partial class MapEditor : Node2D
+public partial class MapEditor : Control
 {
 
 
@@ -20,9 +20,17 @@ public partial class MapEditor : Node2D
 
 	Sprite2D editorTile = new();
 	TileMapLayer Tiles;
-	//PackedScene editorTile;
+    //PackedScene editorTile;
 
-	public override void _Ready()
+    Array<int> size;
+	Array<Dictionary> tiles;
+	Vector2I TilePos;
+    private OptionButton chooseTile;
+
+	bool MousePressed = false;
+    bool EraserPressed = false;
+
+    public override void _Ready()
 	{
 		camera = GetNode<Camera2D>("camera");
 		Tiles = GetNode<TileMapLayer>("tiles");
@@ -38,7 +46,9 @@ public partial class MapEditor : Node2D
 		{
 			map = MapParser.ParseMap(Global.Instance.GameMap);
 		}
-		SetTiles();
+        size = (Array<int>)map["size"];
+        tiles = (Array<Dictionary>)map["tiles"];
+        SetTiles();
 	}
 
 	private void GetTiles()
@@ -51,14 +61,16 @@ public partial class MapEditor : Node2D
 			nowTile.Pack(editorTile);			
 			var id = tileSet.CreateSceneTile(nowTile, tileSet.GetNextSceneTileId());			
 			tileIndex[tile.Key] = id;
+
+			chooseTile = GetNode<OptionButton>("UI/tool/chooseTile");
+			chooseTile.AddIconItem(editorTile.Texture , tile.Key, id);
+
 		}
         Tiles.TileSet.AddSource(tileSet, 0);
     }
 
 	private void SetTiles()
 	{
-		Array<int> size = (Array<int>)map["size"];
-		Array<Dictionary> tiles = (Array<Dictionary>)map["tiles"];
 		for (int i = 0; i < Math.Ceiling(size[0] / 10.0); i++)
 		{
 			for (int j = 0; j < Math.Ceiling(size[1] / 10.0); j++)
@@ -83,7 +95,7 @@ public partial class MapEditor : Node2D
         }
     }
 
-	public override void _Input(InputEvent @event)
+    public override void _UnhandledInput(InputEvent @event)
 	{
 		if (@event is InputEventKey input)
 		{
@@ -113,5 +125,46 @@ public partial class MapEditor : Node2D
 					}
 			}
 		}
+		else if(@event is InputEventMouseButton input2)
+		{
+			switch (input2.ButtonIndex)
+			{
+				case MouseButton.WheelUp: { camera.Zoom = (camera.Zoom.X >= 8) ? new Vector2(8, 8) : camera.Zoom += new Vector2(1,1); break; }
+                case MouseButton.WheelDown: { camera.Zoom = (camera.Zoom.X <= 1/8) ? new Vector2(1,1) : camera.Zoom -= new Vector2(1, 1); break; }
+                case MouseButton.Left: {MousePressed = input2.Pressed;break;}
+                case MouseButton.Right: { EraserPressed = input2.Pressed; break; }
+            }
+			//GD.Print(input2.ButtonIndex);
+		}
 	}
+
+    public override void _PhysicsProcess(double delta)
+    {
+		Vector2I pos = new Vector2I(Mathf.FloorToInt(GetGlobalMousePosition().X/32) , Mathf.FloorToInt(GetGlobalMousePosition().Y / 32));
+		if (pos.X >= 0 && pos.X < size[0] && pos.Y >= 0 && pos.Y < size[1])
+		{
+			GetNode<Label>("UI/bar/info").Text = ($"({pos.X} , {pos.Y})--{tiles[pos.Y * size[0] + pos.X]["id"]}");
+			TilePos = pos;
+		}
+		else
+		{
+			GetNode<Label>("UI/bar/info").Text = "";
+			TilePos = new Vector2I(-1,-1);
+		}
+
+        if (TilePos.X != -1 && TilePos.Y != -1)
+        {
+            if (MousePressed)
+            {
+                tiles[TilePos.Y * size[0] + TilePos.X]["id"] = chooseTile.GetItemText(chooseTile.Selected);
+                Tiles.SetCell(TilePos, 0, new Vector2I(0, 0), tileIndex[(string)tiles[TilePos.Y * size[0] + TilePos.X]["id"]]);
+            }
+			else if (EraserPressed)
+			{
+                tiles[TilePos.Y * size[0] + TilePos.X]["id"] = "air";
+                Tiles.SetCell(TilePos, 0, new Vector2I(0, 0), tileIndex["air"]);
+            }
+        }
+
+    }
 }

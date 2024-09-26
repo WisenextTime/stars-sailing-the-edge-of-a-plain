@@ -1,5 +1,3 @@
-using Godot;
-using System;
 using starsailing.core;
 using starsailing.lib;
 
@@ -18,7 +16,7 @@ class Tiles
         Global.Instance.Tiles["stone"] = stone = new GroundTile("stone")
         {
             name = "stone",
-            image = "砂岩0.png",
+            image = "砂岩2.png",
             humidity = 2
         };
         Global.Instance.Tiles["water"] = water = new WaterTile("water")

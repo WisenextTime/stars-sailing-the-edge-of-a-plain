@@ -1,0 +1,83 @@
+[gd_scene load_steps=5 format=3 uid="uid://dv5w80t7w36h1"]
+
+[ext_resource type="Script" path="res://scripts/MainMenu.cs" id="1_rsey2"]
+[ext_resource type="Shader" path="res://scripts/shader/shake.gdshader" id="2_ess4v"]
+[ext_resource type="Theme" uid="uid://clje0mv7pogam" path="res://resources/theme/menu.tres" id="3_nwrge"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5r0oe"]
+shader = ExtResource("2_ess4v")
+shader_parameter/speed = 5.0
+
+[node name="mainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rsey2")
+
+[node name="title" type="RichTextLabel" parent="."]
+material = SubResource("ShaderMaterial_5r0oe")
+layout_mode = 1
+anchors_preset = -1
+offset_left = 50.0
+offset_top = 60.0
+offset_right = 1800.0
+offset_bottom = 550.0
+theme_override_constants/outline_size = 10
+bbcode_enabled = true
+text = "[center]
+[font_size=200][color=#000000][outline_size=50][outline_color=#00FFFF] S t a r   S a i l i n g [/outline_color][/outline_size][/color][/font_size]
+
+[font_size=120][color=#000000][outline_size=50][outline_color=#FFFFFF] E d g e   o f   P l a i n [/outline_color][/outline_size][/color][/font_size]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.3
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 50.0
+offset_right = -50.0
+offset_bottom = -50.0
+grow_horizontal = 0
+grow_vertical = 2
+alignment = 1
+
+[node name="sigle player" type="Button" parent="buttons"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme = ExtResource("3_nwrge")
+text = "SINGLE PLAYER"
+
+[node name="multiplayer" type="Button" parent="buttons"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme = ExtResource("3_nwrge")
+text = "MULTIPLAYER"
+
+[node name="map editor" type="Button" parent="buttons"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme = ExtResource("3_nwrge")
+text = "MAP EDITOR"
+
+[node name="option" type="Button" parent="buttons"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme = ExtResource("3_nwrge")
+text = "OPTION"
+
+[node name="quit" type="Button" parent="buttons"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme = ExtResource("3_nwrge")
+text = "QUIT"
+
+[connection signal="pressed" from="buttons/quit" to="." method="_on_quit_pressed"]

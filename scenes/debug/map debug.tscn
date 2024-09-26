@@ -6,7 +6,9 @@
 resource_local_to_scene = true
 tile_size = Vector2i(32, 32)
 
-[node name="MapDebug" type="Node2D" groups=["DEBUG"]]
+[node name="MapDebug" type="Control" groups=["DEBUG"]]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_ci1fq")
 
 [node name="camera" type="Camera2D" parent="."]

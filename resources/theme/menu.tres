@@ -1,0 +1,46 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://clje0mv7pogam"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_623dh"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.8, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wg3u"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4xkui"]
+bg_color = Color(0.6, 0.6, 0.6, 0.329412)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gt7pm"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.455817, 0.455817, 0.455817, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lif6t"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.17881, 0.17881, 0.178809, 1)
+
+[resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_outline_color = Color(1, 1, 1, 1)
+Button/constants/outline_size = 10
+Button/font_sizes/font_size = 100
+Button/styles/disabled = SubResource("StyleBoxFlat_623dh")
+Button/styles/focus = SubResource("StyleBoxFlat_0wg3u")
+Button/styles/hover = SubResource("StyleBoxFlat_4xkui")
+Button/styles/normal = SubResource("StyleBoxFlat_gt7pm")
+Button/styles/pressed = SubResource("StyleBoxFlat_lif6t")
