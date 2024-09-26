@@ -49,7 +49,9 @@ public partial class MapEditor : Control
         size = (Array<int>)map["size"];
         tiles = (Array<Dictionary>)map["tiles"];
         SetTiles();
-	}
+
+        camera.GlobalPosition = new Vector2(size[0]*16, size[1] * 16);
+    }
 
 	private void GetTiles()
 	{
@@ -63,7 +65,7 @@ public partial class MapEditor : Control
 			tileIndex[tile.Key] = id;
 
 			chooseTile = GetNode<OptionButton>("UI/tool/chooseTile");
-			chooseTile.AddIconItem(editorTile.Texture , tile.Key, id);
+			chooseTile.AddIconItem(editorTile.Texture , tile.Value.name, id);
 
 		}
         Tiles.TileSet.AddSource(tileSet, 0);
@@ -143,7 +145,7 @@ public partial class MapEditor : Control
 		Vector2I pos = new Vector2I(Mathf.FloorToInt(GetGlobalMousePosition().X/32) , Mathf.FloorToInt(GetGlobalMousePosition().Y / 32));
 		if (pos.X >= 0 && pos.X < size[0] && pos.Y >= 0 && pos.Y < size[1])
 		{
-			GetNode<Label>("UI/bar/info").Text = ($"({pos.X} , {pos.Y})--{tiles[pos.Y * size[0] + pos.X]["id"]}");
+			GetNode<Label>("UI/bar/info").Text = ($"({pos.X} , {pos.Y})--{Global.Instance.Tiles[(string)tiles[pos.Y * size[0] + pos.X]["id"]].name}");
 			TilePos = pos;
 		}
 		else
@@ -154,10 +156,18 @@ public partial class MapEditor : Control
 
         if (TilePos.X != -1 && TilePos.Y != -1)
         {
-            if (MousePressed)
-            {
-                tiles[TilePos.Y * size[0] + TilePos.X]["id"] = chooseTile.GetItemText(chooseTile.Selected);
-                Tiles.SetCell(TilePos, 0, new Vector2I(0, 0), tileIndex[(string)tiles[TilePos.Y * size[0] + TilePos.X]["id"]]);
+			if (MousePressed)
+			{
+				foreach (string id in tileIndex.Keys)
+				{
+					if (tileIndex[id] == chooseTile.GetItemId(chooseTile.Selected))
+					{
+						tiles[TilePos.Y * size[0] + TilePos.X]["id"] = id;
+
+					}
+
+				}
+				Tiles.SetCell(TilePos, 0, new Vector2I(0, 0), chooseTile.GetItemId(chooseTile.Selected));
             }
 			else if (EraserPressed)
 			{

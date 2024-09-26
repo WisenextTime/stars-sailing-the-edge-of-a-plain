@@ -67,6 +67,11 @@ pointing/emulate_touch_from_mouse=true
 pointing/android/enable_long_press_as_right_click=true
 pointing/android/enable_pan_and_scale_gestures=true
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://locate/zh.mo", "res://assets/bundle.en.translation", "res://assets/bundle.zh.translation")
+locale/translations_pot_files=PackedStringArray("res://scenes/preloader.tscn", "res://scenes/main_menu.tscn", "res://scenes/map_editor.tscn")
+
 [layer_names]
 
 2d_render/layer_1="background"

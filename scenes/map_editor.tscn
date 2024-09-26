@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dyjp3mwnc7546"]
+[gd_scene load_steps=4 format=3 uid="uid://dyjp3mwnc7546"]
 
 [ext_resource type="Script" path="res://scripts/map/MapEditor.cs" id="1_qacpq"]
+[ext_resource type="ButtonGroup" uid="uid://c2lkwypj55b4k" path="res://resources/buttonGroups/editorTools.tres" id="2_f7ng1"]
 
 [sub_resource type="TileSet" id="TileSet_cxpxr"]
 resource_local_to_scene = true
@@ -56,3 +57,116 @@ offset_bottom = 150.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 35
 selected = 0
+allow_reselect = true
+
+[node name="CheckButton" type="CheckButton" parent="UI/tool"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.15
+anchor_right = 0.5
+anchor_bottom = 0.15
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 50.0
+text = "height map"
+
+[node name="pens" type="GridContainer" parent="UI/tool"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+offset_left = 153.0
+offset_top = 273.6
+offset_right = 359.0
+offset_bottom = 789.6
+grow_horizontal = 2
+columns = 2
+
+[node name="pen0" type="Button" parent="UI/tool/pens"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("2_f7ng1")
+text = "CHOOSE"
+
+[node name="pen1" type="Button" parent="UI/tool/pens"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+button_group = ExtResource("2_f7ng1")
+text = "PEN"
+
+[node name="pen2" type="Button" parent="UI/tool/pens"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("2_f7ng1")
+text = "ERASER"
+
+[node name="pen3" type="Button" parent="UI/tool/pens"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("2_f7ng1")
+text = "HEIGHT
+ADD"
+
+[node name="pen4" type="Button" parent="UI/tool/pens"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("2_f7ng1")
+text = "HEIGHT
+REDUSE"
+
+[node name="pen5" type="OptionButton" parent="UI/tool/pens"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+button_group = ExtResource("2_f7ng1")
+selected = 0
+item_count = 7
+popup/item_0/text = "LINE"
+popup/item_1/text = "RECT"
+popup/item_1/id = 1
+popup/item_2/text = "REC_F"
+popup/item_2/id = 2
+popup/item_3/text = "CIRCLE"
+popup/item_3/id = 3
+popup/item_4/text = "CIR_F"
+popup/item_4/id = 4
+popup/item_5/text = "HEX"
+popup/item_5/id = 5
+popup/item_6/text = "HEX_F"
+popup/item_6/id = 6
+
+[node name="pen6" type="Button" parent="UI/tool/pens"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("2_f7ng1")
+text = "SELECT"
+
+[node name="pen7" type="Button" parent="UI/tool/pens"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("2_f7ng1")
+text = "ADD
+ITEM"
+
+[node name="pen8" type="Button" parent="UI/tool/pens"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("2_f7ng1")
+text = "DEL
+ITEM"
+
+[node name="pen9" type="Button" parent="UI/tool/pens"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("2_f7ng1")
+text = "EDIT
+ITEM"

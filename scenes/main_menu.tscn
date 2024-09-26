@@ -60,6 +60,7 @@ text = "SINGLE PLAYER"
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 theme = ExtResource("3_nwrge")
+disabled = true
 text = "MULTIPLAYER"
 
 [node name="map editor" type="Button" parent="buttons"]
