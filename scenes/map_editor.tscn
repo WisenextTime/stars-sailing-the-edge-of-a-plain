@@ -1,7 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://dyjp3mwnc7546"]
+[gd_scene load_steps=19 format=3 uid="uid://dyjp3mwnc7546"]
 
 [ext_resource type="Script" path="res://scripts/map/MapEditor.cs" id="1_qacpq"]
 [ext_resource type="ButtonGroup" uid="uid://c2lkwypj55b4k" path="res://resources/buttonGroups/editorTools.tres" id="2_f7ng1"]
+[ext_resource type="Texture2D" uid="uid://cgnebj6o6uu21" path="res://assets/images/UI/mapEditor/choose.svg" id="3_xolbj"]
+[ext_resource type="Texture2D" uid="uid://dprw01mt7uniq" path="res://assets/images/UI/mapEditor/pen.svg" id="4_os4eg"]
+[ext_resource type="Texture2D" uid="uid://6fjp15ki6myc" path="res://assets/images/UI/mapEditor/eraser.svg" id="5_5xpdw"]
+[ext_resource type="Texture2D" uid="uid://dadd3mfr26lo3" path="res://assets/images/UI/mapEditor/pick.svg" id="6_tjl10"]
+[ext_resource type="Texture2D" uid="uid://8yqapdbod4b1" path="res://assets/images/UI/mapEditor/h_add.svg" id="7_e560w"]
+[ext_resource type="Texture2D" uid="uid://c3geif45kkrya" path="res://assets/images/UI/mapEditor/h_reduse.svg" id="8_ldoal"]
+[ext_resource type="Texture2D" uid="uid://dgrsgkxllg00f" path="res://assets/images/UI/mapEditor/shape_line.svg" id="9_1wivx"]
+[ext_resource type="Texture2D" uid="uid://c8v8n17tqtq3r" path="res://assets/images/UI/mapEditor/shape_rect.svg" id="10_4ky66"]
+[ext_resource type="Texture2D" uid="uid://c3kxmjlm1n10c" path="res://assets/images/UI/mapEditor/shape_rect_filled.svg" id="11_u5m7o"]
+[ext_resource type="Texture2D" uid="uid://cibifq6ceronw" path="res://assets/images/UI/mapEditor/shape_circle.svg" id="12_k78xy"]
+[ext_resource type="Texture2D" uid="uid://dsx183pdwjany" path="res://assets/images/UI/mapEditor/shape_circle_filled.svg" id="13_w3l4p"]
+[ext_resource type="Texture2D" uid="uid://c8eg580k0u63g" path="res://assets/images/UI/mapEditor/select.svg" id="14_mlcsk"]
+[ext_resource type="Texture2D" uid="uid://b1cubnm6g75iv" path="res://assets/images/UI/mapEditor/item_add.svg" id="15_j0jsp"]
+[ext_resource type="Texture2D" uid="uid://bmmudxbfo6gl0" path="res://assets/images/UI/mapEditor/item_del.svg" id="16_sv1km"]
+[ext_resource type="Texture2D" uid="uid://s7h77c16egsv" path="res://assets/images/UI/mapEditor/item_edit.svg" id="17_m6pe3"]
 
 [sub_resource type="TileSet" id="TileSet_cxpxr"]
 resource_local_to_scene = true
@@ -82,91 +97,112 @@ offset_bottom = 789.6
 grow_horizontal = 2
 columns = 2
 
-[node name="pen0" type="Button" parent="UI/tool/pens"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-toggle_mode = true
-button_group = ExtResource("2_f7ng1")
-text = "CHOOSE"
-
-[node name="pen1" type="Button" parent="UI/tool/pens"]
+[node name="choose" type="Button" parent="UI/tool/pens"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 toggle_mode = true
 button_pressed = true
 button_group = ExtResource("2_f7ng1")
-text = "PEN"
+icon = ExtResource("3_xolbj")
+icon_alignment = 1
+expand_icon = true
 
-[node name="pen2" type="Button" parent="UI/tool/pens"]
+[node name="pen" type="Button" parent="UI/tool/pens"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 toggle_mode = true
 button_group = ExtResource("2_f7ng1")
-text = "ERASER"
+icon = ExtResource("4_os4eg")
+icon_alignment = 1
+expand_icon = true
 
-[node name="pen3" type="Button" parent="UI/tool/pens"]
+[node name="eraser" type="Button" parent="UI/tool/pens"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 toggle_mode = true
 button_group = ExtResource("2_f7ng1")
-text = "HEIGHT
-ADD"
+icon = ExtResource("5_5xpdw")
+icon_alignment = 1
+expand_icon = true
 
-[node name="pen4" type="Button" parent="UI/tool/pens"]
+[node name="pick" type="Button" parent="UI/tool/pens"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 toggle_mode = true
 button_group = ExtResource("2_f7ng1")
-text = "HEIGHT
-REDUSE"
+icon = ExtResource("6_tjl10")
+icon_alignment = 1
+expand_icon = true
 
-[node name="pen5" type="OptionButton" parent="UI/tool/pens"]
+[node name="h_add" type="Button" parent="UI/tool/pens"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("2_f7ng1")
+icon = ExtResource("7_e560w")
+icon_alignment = 1
+expand_icon = true
+
+[node name="h_reduse" type="Button" parent="UI/tool/pens"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("2_f7ng1")
+icon = ExtResource("8_ldoal")
+icon_alignment = 1
+expand_icon = true
+
+[node name="shapes" type="OptionButton" parent="UI/tool/pens"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 button_group = ExtResource("2_f7ng1")
+icon_alignment = 1
+expand_icon = true
 selected = 0
-item_count = 7
-popup/item_0/text = "LINE"
-popup/item_1/text = "RECT"
+fit_to_longest_item = false
+item_count = 5
+popup/item_0/icon = ExtResource("9_1wivx")
+popup/item_1/icon = ExtResource("10_4ky66")
 popup/item_1/id = 1
-popup/item_2/text = "REC_F"
+popup/item_2/icon = ExtResource("11_u5m7o")
 popup/item_2/id = 2
-popup/item_3/text = "CIRCLE"
+popup/item_3/icon = ExtResource("12_k78xy")
 popup/item_3/id = 3
-popup/item_4/text = "CIR_F"
+popup/item_4/icon = ExtResource("13_w3l4p")
 popup/item_4/id = 4
-popup/item_5/text = "HEX"
-popup/item_5/id = 5
-popup/item_6/text = "HEX_F"
-popup/item_6/id = 6
 
-[node name="pen6" type="Button" parent="UI/tool/pens"]
+[node name="select" type="Button" parent="UI/tool/pens"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 toggle_mode = true
 button_group = ExtResource("2_f7ng1")
-text = "SELECT"
+icon = ExtResource("14_mlcsk")
+icon_alignment = 1
+expand_icon = true
 
-[node name="pen7" type="Button" parent="UI/tool/pens"]
+[node name="i_add" type="Button" parent="UI/tool/pens"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 toggle_mode = true
 button_group = ExtResource("2_f7ng1")
-text = "ADD
-ITEM"
+icon = ExtResource("15_j0jsp")
+icon_alignment = 1
+expand_icon = true
 
-[node name="pen8" type="Button" parent="UI/tool/pens"]
+[node name="i_del" type="Button" parent="UI/tool/pens"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 toggle_mode = true
 button_group = ExtResource("2_f7ng1")
-text = "DEL
-ITEM"
+icon = ExtResource("16_sv1km")
+icon_alignment = 1
+expand_icon = true
 
-[node name="pen9" type="Button" parent="UI/tool/pens"]
+[node name="i_edit" type="Button" parent="UI/tool/pens"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 toggle_mode = true
 button_group = ExtResource("2_f7ng1")
-text = "EDIT
-ITEM"
+icon = ExtResource("17_m6pe3")
+icon_alignment = 1
+expand_icon = true

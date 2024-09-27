@@ -10,9 +10,12 @@ using starsailing.canvas;
 using System.Reflection.PortableExecutable;
 using starsailing.conten;
 
+
+
 public partial class MapEditor : Control
 {
 
+	static List<Button> Buttons = new();
 
 	Camera2D camera;
 	public Dictionary map;
@@ -29,6 +32,8 @@ public partial class MapEditor : Control
 
 	bool MousePressed = false;
     bool EraserPressed = false;
+
+	Vector2 MousePosition = new();
 
     public override void _Ready()
 	{
@@ -48,10 +53,19 @@ public partial class MapEditor : Control
 		}
         size = (Array<int>)map["size"];
         tiles = (Array<Dictionary>)map["tiles"];
+		GetButtons();
         SetTiles();
 
         camera.GlobalPosition = new Vector2(size[0]*16, size[1] * 16);
     }
+
+	private void GetButtons()
+	{
+		foreach(Button button in GetNode("UI/tool/pens").GetChildren())
+		{
+			Buttons.Add(button);
+		}
+	}
 
 	private void GetTiles()
 	{
@@ -125,22 +139,30 @@ public partial class MapEditor : Control
 						camera.GlobalPosition = new Vector2(_carema_x, _carema_y + 10);
 						break;
 					}
-			}
+                case Key.Space:
+                    {
+                        camera.GlobalPosition = new Vector2(size[0] * 16, size[1] * 16);
+                        break;
+                    }
+            }
 		}
-		else if(@event is InputEventMouseButton input2)
+		else if (@event is InputEventMouseButton input2)
 		{
 			switch (input2.ButtonIndex)
 			{
-				case MouseButton.WheelUp: { camera.Zoom = (camera.Zoom.X >= 8) ? new Vector2(8, 8) : camera.Zoom += new Vector2(1,1); break; }
-                case MouseButton.WheelDown: { camera.Zoom = (camera.Zoom.X <= 1/8) ? new Vector2(1,1) : camera.Zoom -= new Vector2(1, 1); break; }
-                case MouseButton.Left: {MousePressed = input2.Pressed;break;}
-                case MouseButton.Right: { EraserPressed = input2.Pressed; break; }
-            }
-			//GD.Print(input2.ButtonIndex);
+				case MouseButton.WheelUp: { camera.Zoom = (camera.Zoom.X >= 8) ? new Vector2(8, 8) : camera.Zoom += new Vector2(1, 1); break; }
+				case MouseButton.WheelDown: { camera.Zoom = (camera.Zoom.X <= 1 / 8) ? new Vector2(1, 1) : camera.Zoom -= new Vector2(1, 1); break; }
+				case MouseButton.Left: { MousePressed = input2.Pressed; break; }
+				case MouseButton.Right: { EraserPressed = input2.Pressed; break; }
+			}
+		}
+		else if (@event is InputEventMouseMotion input3)
+		{
+			MousePosition = input3.Relative;
 		}
 	}
 
-    public override void _PhysicsProcess(double delta)
+    public override async void _PhysicsProcess(double delta)
     {
 		Vector2I pos = new Vector2I(Mathf.FloorToInt(GetGlobalMousePosition().X/32) , Mathf.FloorToInt(GetGlobalMousePosition().Y / 32));
 		if (pos.X >= 0 && pos.X < size[0] && pos.Y >= 0 && pos.Y < size[1])
@@ -158,21 +180,34 @@ public partial class MapEditor : Control
         {
 			if (MousePressed)
 			{
-				foreach (string id in tileIndex.Keys)
+				if (Buttons[0].ButtonPressed)
 				{
-					if (tileIndex[id] == chooseTile.GetItemId(chooseTile.Selected))
+                    camera.GlobalPosition -= MousePosition / camera.Zoom.X * 2f;
+					MousePosition = new();
+				}
+				else if (Buttons[1].ButtonPressed)
+				{
+					foreach (string id in tileIndex.Keys)
 					{
-						tiles[TilePos.Y * size[0] + TilePos.X]["id"] = id;
+						if (tileIndex[id] == chooseTile.GetItemId(chooseTile.Selected))
+						{
+							tiles[TilePos.Y * size[0] + TilePos.X]["id"] = id;
+						}
 
 					}
+					Tiles.SetCell(TilePos, 0, new Vector2I(0, 0), chooseTile.GetItemId(chooseTile.Selected));
+				} 
+				else if (Buttons[2].ButtonPressed)
+				{
+					Tiles.SetCell(TilePos, 0, new Vector2I(0, 0), tileIndex["air"]);
+					tiles[TilePos.Y * size[0] + TilePos.X]["id"] = "air";
+                }
+                else if (Buttons[3].ButtonPressed)
+				{
+					chooseTile.Select(tileIndex[(string)tiles[TilePos.Y * size[0] + TilePos.X]["id"]] - 1);
 
-				}
-				Tiles.SetCell(TilePos, 0, new Vector2I(0, 0), chooseTile.GetItemId(chooseTile.Selected));
-            }
-			else if (EraserPressed)
-			{
-                tiles[TilePos.Y * size[0] + TilePos.X]["id"] = "air";
-                Tiles.SetCell(TilePos, 0, new Vector2I(0, 0), tileIndex["air"]);
+                }
+
             }
         }
 
