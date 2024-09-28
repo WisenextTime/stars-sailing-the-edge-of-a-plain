@@ -7,3 +7,26 @@ TILE_MUDDY_NAME,muddy,泥地
 TILE_LAVA_NAME,lave,岩浆
 TILE_AIR_NAME,air,空
 TILE_BRIDGE_NAME,water bridge,浅水
+,,
+UI_MAPEDITOR_HEIGHTMAP,height view,高度视图
+UI_MAPEDITOR_CHOOSETILE_TOOLTIP,Change the selected tile,改变选取的地块
+UI_MAPEDITOR_HEIGHTMAP_TOOLTIP,Turn on or off height view,打开或关闭高度视图
+UI_MAPEDITOR_PEN0_TOOLTIP,move,移动
+UI_MAPEDITOR_PEN1_TOOLTIP,pen,画笔
+UI_MAPEDITOR_PEN2_TOOLTIP,eraser,橡皮
+UI_MAPEDITOR_PEN3_TOOLTIP,picker,滴管
+UI_MAPEDITOR_PEN4_TOOLTIP,add height,高度增加
+UI_MAPEDITOR_PEN5_TOOLTIP,reduce height,高度减少
+UI_MAPEDITOR_PEN6_TOOLTIP,shapes,形状
+UI_MAPEDITOR_PEN7_TOOLTIP,select,选择
+UI_MAPEDITOR_PEN8_TOOLTIP,add item,添加物体
+UI_MAPEDITOR_PEN9_TOOLTIP,delete item,删除物体
+UI_MAPEDITOR_PEN10_TOOLTIP,edit item,编辑物体
+,,
+UI_MAINMENU_TITLE,[center][font_size=200][color=#000000][outline_size=50][outline_color=#00FFFF] S t a r    S a i l i n g  [/outline_color][/outline_size][/color][/font_size]\n\n[font_size=120][color=#000000][outline_size=50][outline_color=#FFFFFF] E d g e    o f    P l a i n [/outline_color][/outline_size][/color][/font_size],[center][font_size=200][color=#000000][outline_size=50][outline_color=#00FFFF] 群 星 启 航 [/outline_color][/outline_size][/color][/font_size]\n\n[font_size=120][color=#000000][outline_size=50][outline_color=#FFFFFF] 平 原 边 缘 [/outline_color][/outline_size][/color][/font_size]
+,,
+UI_MAINMENU_SINGLE,SINGLE PLAYER,单人游戏
+UI_MAINMENU_MULTIPLAYER,MULTIPLAYER,多人游戏
+UI_MAINMENU_MAPEDITOR,MAP EDITOR,地图编辑
+UI_MAINMENU_OPTION,OPTION,选项
+UI_MAINMENU_QUIT,QUIT,退出

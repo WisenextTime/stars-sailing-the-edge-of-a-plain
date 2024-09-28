@@ -23,6 +23,7 @@ public partial class MapEditor : Control
 
 	Sprite2D editorTile = new();
 	TileMapLayer Tiles;
+    TileMapLayer TileHeight;
     //PackedScene editorTile;
 
     Array<int> size;
@@ -32,6 +33,8 @@ public partial class MapEditor : Control
 
 	bool MousePressed = false;
     bool EraserPressed = false;
+	bool MouseReleased = true;
+
 
 	Vector2 MousePosition = new();
 
@@ -39,8 +42,9 @@ public partial class MapEditor : Control
 	{
 		camera = GetNode<Camera2D>("camera");
 		Tiles = GetNode<TileMapLayer>("tiles");
-		//editorTile = ResourceLoader.Load<PackedScene>("res://scenes/prefab/editor_tile.tscn");
-		editorTile.Name = "editorTile";
+        TileHeight = GetNode<TileMapLayer>("tileHeight");
+        //editorTile = ResourceLoader.Load<PackedScene>("res://scenes/prefab/editor_tile.tscn");
+        editorTile.Name = "editorTile";
 		GetTiles();
 		if (IsInGroup("DEBUG"))
 		{
@@ -105,8 +109,9 @@ public partial class MapEditor : Control
 			for (int y = startPos.Y; y < chunkSize.Y + startPos.Y; y++)
 			{
 				Tiles.SetCell(new Vector2I(x, y), 0, new Vector2I(0, 0), tileIndex[(string)tiles[y*size[0]+x]["id"]]);
-				//Tiles.SetCell(new Vector2I(startPos.X + x, startPos.Y + y), 0, new Vector2I(0, 0), tileIndex["grass"]);
-				//GD.Print(GD.VarToStr(new Vector2I(x,y)));
+                TileHeight.SetCell(new Vector2I(x, y), 0, new Vector2I(0, (int)tiles[y * size[0] + x]["height"]));
+                //Tiles.SetCell(new Vector2I(startPos.X + x, startPos.Y + y), 0, new Vector2I(0, 0), tileIndex["grass"]);
+                //GD.Print(GD.VarToStr(new Vector2I(x,y)));
             }
         }
     }
@@ -152,7 +157,12 @@ public partial class MapEditor : Control
 			{
 				case MouseButton.WheelUp: { camera.Zoom = (camera.Zoom.X >= 8) ? new Vector2(8, 8) : camera.Zoom += new Vector2(1, 1); break; }
 				case MouseButton.WheelDown: { camera.Zoom = (camera.Zoom.X <= 1 / 8) ? new Vector2(1, 1) : camera.Zoom -= new Vector2(1, 1); break; }
-				case MouseButton.Left: { MousePressed = input2.Pressed; break; }
+				case MouseButton.Left: 
+					{
+						MousePressed = input2.Pressed;
+						if (!input2.Pressed) { MouseReleased = true; }
+						break;
+					}
 				case MouseButton.Right: { EraserPressed = input2.Pressed; break; }
 			}
 		}
@@ -162,19 +172,25 @@ public partial class MapEditor : Control
 		}
 	}
 
-    public override async void _PhysicsProcess(double delta)
-    {
-		Vector2I pos = new Vector2I(Mathf.FloorToInt(GetGlobalMousePosition().X/32) , Mathf.FloorToInt(GetGlobalMousePosition().Y / 32));
+	public override async void _PhysicsProcess(double delta)
+	{
+		Vector2I pos = new(Mathf.FloorToInt(GetGlobalMousePosition().X / 32), Mathf.FloorToInt(GetGlobalMousePosition().Y / 32));
 		if (pos.X >= 0 && pos.X < size[0] && pos.Y >= 0 && pos.Y < size[1])
 		{
-			GetNode<Label>("UI/bar/info").Text = ($"({pos.X} , {pos.Y})--{Global.Instance.Tiles[(string)tiles[pos.Y * size[0] + pos.X]["id"]].name}");
+			GetNode<Label>("UI/bar/info").Text = ($"({pos.X} , {pos.Y}) - {Global.Instance.Tiles[(string)tiles[pos.Y * size[0] + pos.X]["id"]].name} - {tiles[pos.Y * size[0] + pos.X]["height"]}");
 			TilePos = pos;
 		}
 		else
 		{
 			GetNode<Label>("UI/bar/info").Text = "";
-			TilePos = new Vector2I(-1,-1);
+			TilePos = new Vector2I(-1, -1);
 		}
+		TileOperation();
+		TileHeight.Visible = GetNode<CheckButton>("UI/tool/HeightMap").ButtonPressed;
+	}
+
+	private void TileOperation() 
+	{ 
 
         if (TilePos.X != -1 && TilePos.Y != -1)
         {
@@ -195,11 +211,11 @@ public partial class MapEditor : Control
 						}
 
 					}
-					Tiles.SetCell(TilePos, 0, new Vector2I(0, 0), chooseTile.GetItemId(chooseTile.Selected));
+					Tiles.CallDeferred(TileMapLayer.MethodName.SetCell, TilePos, 0, new Vector2I(0, 0), chooseTile.GetItemId(chooseTile.Selected));
 				} 
 				else if (Buttons[2].ButtonPressed)
 				{
-					Tiles.SetCell(TilePos, 0, new Vector2I(0, 0), tileIndex["air"]);
+					Tiles.CallDeferred(TileMapLayer.MethodName.SetCell,TilePos, 0, new Vector2I(0, 0), tileIndex["air"]);
 					tiles[TilePos.Y * size[0] + TilePos.X]["id"] = "air";
                 }
                 else if (Buttons[3].ButtonPressed)
@@ -207,7 +223,18 @@ public partial class MapEditor : Control
 					chooseTile.Select(tileIndex[(string)tiles[TilePos.Y * size[0] + TilePos.X]["id"]] - 1);
 
                 }
-
+                else if (Buttons[4].ButtonPressed && MouseReleased)
+                {
+                    tiles[TilePos.Y * size[0] + TilePos.X]["height"] = Math.Min(9 , (int)tiles[TilePos.Y * size[0] + TilePos.X]["height"] + 1);
+					MouseReleased = false;
+                    TileHeight.CallDeferred(TileMapLayer.MethodName.SetCell, TilePos, 0, new Vector2I(0, (int)tiles[TilePos.Y * size[0] + TilePos.X]["height"]));
+                }
+                else if (Buttons[5].ButtonPressed && MouseReleased)
+                {
+                    tiles[TilePos.Y * size[0] + TilePos.X]["height"] = Math.Max(0 , (int)tiles[TilePos.Y * size[0] + TilePos.X]["height"] - 1);
+					MouseReleased = false;
+                    TileHeight.CallDeferred(TileMapLayer.MethodName.SetCell, TilePos, 0, new Vector2I(0, (int)tiles[TilePos.Y * size[0] + TilePos.X]["height"]));
+                }
             }
         }
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://dyjp3mwnc7546"]
+[gd_scene load_steps=22 format=3 uid="uid://dyjp3mwnc7546"]
 
 [ext_resource type="Script" path="res://scripts/map/MapEditor.cs" id="1_qacpq"]
 [ext_resource type="ButtonGroup" uid="uid://c2lkwypj55b4k" path="res://resources/buttonGroups/editorTools.tres" id="2_f7ng1"]
+[ext_resource type="Texture2D" uid="uid://bxenorei8qnb6" path="res://assets/images/tile/height_edge.png" id="2_j6ejw"]
 [ext_resource type="Texture2D" uid="uid://cgnebj6o6uu21" path="res://assets/images/UI/mapEditor/choose.svg" id="3_xolbj"]
 [ext_resource type="Texture2D" uid="uid://dprw01mt7uniq" path="res://assets/images/UI/mapEditor/pen.svg" id="4_os4eg"]
 [ext_resource type="Texture2D" uid="uid://6fjp15ki6myc" path="res://assets/images/UI/mapEditor/eraser.svg" id="5_5xpdw"]
@@ -22,6 +23,26 @@
 resource_local_to_scene = true
 tile_size = Vector2i(32, 32)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2vnl1"]
+texture = ExtResource("2_j6ejw")
+margins = Vector2i(1, 1)
+separation = Vector2i(1, 1)
+texture_region_size = Vector2i(31, 31)
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+0:4/0 = 0
+0:5/0 = 0
+0:6/0 = 0
+0:7/0 = 0
+0:8/0 = 0
+0:9/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_gcu7g"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_2vnl1")
+
 [node name="MapEditor" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -29,6 +50,12 @@ script = ExtResource("1_qacpq")
 
 [node name="tiles" type="TileMapLayer" parent="."]
 tile_set = SubResource("TileSet_cxpxr")
+rendering_quadrant_size = 10
+
+[node name="tileHeight" type="TileMapLayer" parent="."]
+self_modulate = Color(1, 1, 1, 0.721569)
+tile_set = SubResource("TileSet_gcu7g")
+y_sort_origin = 1
 
 [node name="items" type="Node2D" parent="."]
 
@@ -70,11 +97,11 @@ offset_top = 50.0
 offset_right = 50.0
 offset_bottom = 150.0
 grow_horizontal = 2
+tooltip_text = "UI_MAPEDITOR_CHOOSETILE_TOOLTIP"
 theme_override_font_sizes/font_size = 35
-selected = 0
 allow_reselect = true
 
-[node name="CheckButton" type="CheckButton" parent="UI/tool"]
+[node name="HeightMap" type="CheckButton" parent="UI/tool"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 1
 anchors_preset = -1
@@ -85,7 +112,8 @@ anchor_bottom = 0.15
 offset_left = -100.0
 offset_right = 100.0
 offset_bottom = 50.0
-text = "height map"
+tooltip_text = "UI_MAPEDITOR_HEIGHTMAP_TOOLTIP"
+text = "UI_MAPEDITOR_HEIGHTMAP"
 
 [node name="pens" type="GridContainer" parent="UI/tool"]
 custom_minimum_size = Vector2(200, 0)
@@ -97,9 +125,10 @@ offset_bottom = 789.6
 grow_horizontal = 2
 columns = 2
 
-[node name="choose" type="Button" parent="UI/tool/pens"]
+[node name="choose-0" type="Button" parent="UI/tool/pens"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+tooltip_text = "UI_MAPEDITOR_PEN0_TOOLTIP"
 toggle_mode = true
 button_pressed = true
 button_group = ExtResource("2_f7ng1")
@@ -107,54 +136,61 @@ icon = ExtResource("3_xolbj")
 icon_alignment = 1
 expand_icon = true
 
-[node name="pen" type="Button" parent="UI/tool/pens"]
+[node name="pen-1" type="Button" parent="UI/tool/pens"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+tooltip_text = "UI_MAPEDITOR_PEN1_TOOLTIP"
 toggle_mode = true
 button_group = ExtResource("2_f7ng1")
 icon = ExtResource("4_os4eg")
 icon_alignment = 1
 expand_icon = true
 
-[node name="eraser" type="Button" parent="UI/tool/pens"]
+[node name="eraser-2" type="Button" parent="UI/tool/pens"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+tooltip_text = "UI_MAPEDITOR_PEN2_TOOLTIP"
 toggle_mode = true
 button_group = ExtResource("2_f7ng1")
 icon = ExtResource("5_5xpdw")
 icon_alignment = 1
 expand_icon = true
 
-[node name="pick" type="Button" parent="UI/tool/pens"]
+[node name="pick-3" type="Button" parent="UI/tool/pens"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+tooltip_text = "UI_MAPEDITOR_PEN3_TOOLTIP"
 toggle_mode = true
 button_group = ExtResource("2_f7ng1")
 icon = ExtResource("6_tjl10")
 icon_alignment = 1
 expand_icon = true
 
-[node name="h_add" type="Button" parent="UI/tool/pens"]
+[node name="h_add-4" type="Button" parent="UI/tool/pens"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+tooltip_text = "UI_MAPEDITOR_PEN4_TOOLTIP"
 toggle_mode = true
 button_group = ExtResource("2_f7ng1")
 icon = ExtResource("7_e560w")
 icon_alignment = 1
 expand_icon = true
 
-[node name="h_reduse" type="Button" parent="UI/tool/pens"]
+[node name="h_reduse-5" type="Button" parent="UI/tool/pens"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+tooltip_text = "UI_MAPEDITOR_PEN5_TOOLTIP"
 toggle_mode = true
 button_group = ExtResource("2_f7ng1")
 icon = ExtResource("8_ldoal")
 icon_alignment = 1
 expand_icon = true
 
-[node name="shapes" type="OptionButton" parent="UI/tool/pens"]
+[node name="shapes-6" type="OptionButton" parent="UI/tool/pens"]
+visible = false
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+tooltip_text = "UI_MAPEDITOR_PEN6_TOOLTIP"
 button_group = ExtResource("2_f7ng1")
 icon_alignment = 1
 expand_icon = true
@@ -171,36 +207,41 @@ popup/item_3/id = 3
 popup/item_4/icon = ExtResource("13_w3l4p")
 popup/item_4/id = 4
 
-[node name="select" type="Button" parent="UI/tool/pens"]
+[node name="select-7" type="Button" parent="UI/tool/pens"]
+visible = false
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+tooltip_text = "UI_MAPEDITOR_PEN7_TOOLTIP"
 toggle_mode = true
 button_group = ExtResource("2_f7ng1")
 icon = ExtResource("14_mlcsk")
 icon_alignment = 1
 expand_icon = true
 
-[node name="i_add" type="Button" parent="UI/tool/pens"]
+[node name="i_add-8" type="Button" parent="UI/tool/pens"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+tooltip_text = "UI_MAPEDITOR_PEN8_TOOLTIP"
 toggle_mode = true
 button_group = ExtResource("2_f7ng1")
 icon = ExtResource("15_j0jsp")
 icon_alignment = 1
 expand_icon = true
 
-[node name="i_del" type="Button" parent="UI/tool/pens"]
+[node name="i_del-9" type="Button" parent="UI/tool/pens"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+tooltip_text = "UI_MAPEDITOR_PEN9_TOOLTIP"
 toggle_mode = true
 button_group = ExtResource("2_f7ng1")
 icon = ExtResource("16_sv1km")
 icon_alignment = 1
 expand_icon = true
 
-[node name="i_edit" type="Button" parent="UI/tool/pens"]
+[node name="i_edit-10" type="Button" parent="UI/tool/pens"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+tooltip_text = "UI_MAPEDITOR_PEN10_TOOLTIP"
 toggle_mode = true
 button_group = ExtResource("2_f7ng1")
 icon = ExtResource("17_m6pe3")
