@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ct3dtct845bkw"]
+
+[ext_resource type="ButtonGroup" uid="uid://bv6t8x3nfbbce" path="res://resources/buttonGroups/MapList.tres" id="1_ob7p7"]
+[ext_resource type="Script" path="res://scripts/gds/list_button.gd" id="2_ox7vj"]
+
+[node name="ListButton" type="Button"]
+auto_translate_mode = 2
+theme_override_font_sizes/font_size = 40
+toggle_mode = true
+button_group = ExtResource("1_ob7p7")
+script = ExtResource("2_ox7vj")
+
+[connection signal="toggled" from="." to="." method="_on_toggled"]

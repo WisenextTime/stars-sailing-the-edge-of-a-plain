@@ -78,4 +78,5 @@ layout_mode = 2
 theme = ExtResource("3_nwrge")
 text = "UI_MAINMENU_QUIT"
 
-[connection signal="pressed" from="buttons/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="buttons/map editor" to="." method="OnMapEditorPressed"]
+[connection signal="pressed" from="buttons/quit" to="." method="OnQuitPressed"]

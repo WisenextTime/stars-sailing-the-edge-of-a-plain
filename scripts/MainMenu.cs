@@ -12,9 +12,13 @@ public partial class MainMenu : Control
 	public override void _Process(double delta)
 	{
 	}
-	public void _on_quit_pressed()
+	public void OnQuitPressed()
 	{
 		GetTree().Root.PropagateNotification((int)NotificationWMCloseRequest);
 		GetTree().Quit();
+	}
+	public void OnMapEditorPressed()
+	{
+		GetTree().ChangeSceneToFile("res://scenes/editor_map_list.tscn");
 	}
 }

@@ -1,0 +1,216 @@
+[gd_scene load_steps=3 format=3 uid="uid://d80c1pf0lfk3"]
+
+[ext_resource type="Script" path="res://scripts/map/EditorMapList.cs" id="1_38con"]
+[ext_resource type="Texture2D" uid="uid://dva6wolj1bbsi" path="res://assets/images/UI/地图框.png" id="2_r6o1e"]
+
+[node name="EditorMapList" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_38con")
+
+[node name="List" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 50.0
+offset_bottom = -50.0
+
+[node name="List" type="VBoxContainer" parent="List"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="operations" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -50.0
+grow_horizontal = 0
+grow_vertical = 2
+alignment = 1
+
+[node name="NEW" type="Button" parent="operations"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "UI_EDITORMAPLIST_NEW"
+
+[node name="NewMap" type="Popup" parent="operations/NEW"]
+title = "NewMap"
+initial_position = 1
+size = Vector2i(1100, 787)
+wrap_controls = false
+always_on_top = true
+extend_to_title = true
+
+[node name="background" type="NinePatchRect" parent="operations/NEW/NewMap"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_r6o1e")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Title" type="Label" parent="operations/NEW/NewMap"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.05
+anchor_right = 0.5
+anchor_bottom = 0.05
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "UI_MAP_NEW"
+horizontal_alignment = 1
+
+[node name="Name" type="LineEdit" parent="operations/NEW/NewMap"]
+auto_translate_mode = 2
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -20.0
+offset_right = -50.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+select_all_on_focus = true
+caret_blink = true
+
+[node name="Error" type="Label" parent="operations/NEW/NewMap"]
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = 50.0
+offset_bottom = 50.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+
+[node name="Button_OK" type="Button" parent="operations/NEW/NewMap"]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "BUTTON_OK"
+
+[node name="Button_Cancel" type="Button" parent="operations/NEW/NewMap"]
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_bottom = -20.0
+grow_vertical = 0
+text = "BUTTON_CANCEL"
+
+[node name="Size" type="VSplitContainer" parent="operations/NEW/NewMap"]
+anchors_preset = -1
+anchor_top = 0.3
+anchor_bottom = 0.3
+offset_left = 50.0
+offset_top = -39.0
+offset_right = 96.0
+offset_bottom = 39.0
+grow_vertical = 2
+
+[node name="X" type="HBoxContainer" parent="operations/NEW/NewMap/Size"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="operations/NEW/NewMap/Size/X"]
+layout_mode = 2
+text = "X:"
+
+[node name="Text" type="LineEdit" parent="operations/NEW/NewMap/Size/X"]
+layout_mode = 2
+text = "10"
+virtual_keyboard_type = 2
+
+[node name="Error" type="Label" parent="operations/NEW/NewMap/Size/X"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+
+[node name="Y" type="HBoxContainer" parent="operations/NEW/NewMap/Size"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="operations/NEW/NewMap/Size/Y"]
+layout_mode = 2
+text = "Y:"
+
+[node name="Text" type="LineEdit" parent="operations/NEW/NewMap/Size/Y"]
+layout_mode = 2
+text = "10"
+virtual_keyboard_type = 2
+
+[node name="Error" type="Label" parent="operations/NEW/NewMap/Size/Y"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+
+[node name="Mode" type="OptionButton" parent="operations/NEW/NewMap"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.3
+anchor_right = 0.5
+anchor_bottom = 0.3
+grow_horizontal = 2
+grow_vertical = 2
+selected = 0
+allow_reselect = true
+item_count = 2
+popup/item_0/text = "TYPE_TILEMAP"
+popup/item_1/text = "TYPE_CANVASMAP"
+popup/item_1/id = 1
+popup/item_1/disabled = true
+
+[node name="Folder" type="OptionButton" parent="operations/NEW/NewMap"]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.3
+anchor_right = 1.0
+anchor_bottom = 0.3
+offset_right = -50.0
+grow_horizontal = 0
+grow_vertical = 2
+selected = 0
+allow_reselect = true
+item_count = 2
+popup/item_0/text = "LOCATION_INTERNAL_STORAGE"
+popup/item_1/text = "LOCATION_EXTERNAL_STORAGE"
+popup/item_1/id = 1
+popup/item_1/disabled = true
+
+[node name="DEL" type="Button" parent="operations"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+disabled = true
+text = "UI_EDITORMAPLIST_DEL"
+
+[node name="EDIT" type="Button" parent="operations"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "UI_EDITORMAPLIST_EDIT"
+
+[node name="BACK" type="Button" parent="operations"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "UI_EDITORMAPLIST_BACK"
+
+[connection signal="pressed" from="operations/NEW" to="." method="OnNewPressed"]
+[connection signal="pressed" from="operations/NEW/NewMap/Button_OK" to="." method="OnButtonNewMapOK"]
+[connection signal="pressed" from="operations/NEW/NewMap/Button_Cancel" to="." method="OnButtonNewMapCancel"]
+[connection signal="pressed" from="operations/BACK" to="." method="OnBackPressed"]
